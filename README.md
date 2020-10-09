@@ -30,7 +30,7 @@
  
 # Config
  username<br/>
- &nbsp;&nbsp;&nbsp - Replace it with your instagram username<br/>
+ &nbsp;&nbsp; - Replace it with your instagram username<br/>
  password<br/>
  &nbsp;&nbsp;&nbsp - Replace it with your instagram password<br/>
  followbot_option<br/>
