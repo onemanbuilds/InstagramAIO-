@@ -19,10 +19,10 @@
  Comment Bot<br/>
  Username Checker<br/>
  Story Viewer<br/>
- Follow by Hashtag
- &nbsp;&nbsp;&nbsp - Follow users by a specific hashtag
- Unfollow by Hashtag
- &nbsp;&nbsp;&nbsp - Unfollow users by a specific hashtag<br/>
+ Follow by Hashtag<br/>
+ &nbsp;&nbsp;&nbsp; - Follow users by a specific hashtag<br/>
+ Unfollow by Hashtag<br/>
+ &nbsp;&nbsp;&nbsp; - Unfollow users by a specific hashtag<br/>
  Download Videos / Images<br/>
  Grab Avatars<br/>
  Account Checker<br/>
