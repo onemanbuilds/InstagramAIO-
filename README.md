@@ -34,11 +34,13 @@
  password<br/>
  &nbsp;&nbsp;&nbsp; - Replace it with your instagram password<br/>
  followbot_option<br/>
- &nbsp;&nbsp;&nbsp; - (1) First Follow then Unfollow (0) First Unfollow then Follow
+ &nbsp;&nbsp;&nbsp; - (1) First Follow then Unfollow<br/>
+ &nbsp;&nbsp;&nbsp; - (0) First Unfollow then Follow<br/>
  followbot_timeout<br/>
  &nbsp;&nbsp;&nbsp; - Timeout between Follow and Unfollow<br/>
  likebot_option<br/>
- &nbsp;&nbsp;&nbsp; - (1) First Like then Unlike (0) First Unlike then Unfollow<br/>
+ &nbsp;&nbsp;&nbsp; - (1) First Like then Unlike<br/>
+ &nbsp;&nbsp;&nbsp; - (0) First Unlike then Unfollow<br/>
  likebot_timeout<br/>
  &nbsp;&nbsp;&nbsp; - Timeout between Like and Unlike<br/>
  comment_timeout<br/>
@@ -46,17 +48,21 @@
  download_videos_or_images_timeout<br/>
  &nbsp;&nbsp;&nbsp; - Timeout between Videos / Images Download<br/>
  download_videos_or_images_option<br/>
- &nbsp;&nbsp;&nbsp; - (1) Downloads multiple files from the given media_urls (0) Downloads one file from the given media url<br/>
+ &nbsp;&nbsp;&nbsp; - (1) Downloads multiple files from the given media_urls<br/>
+ &nbsp;&nbsp;&nbsp; - (0) Downloads one file from the given media url<br/>
  download_avatars_timeout<br/>
  &nbsp;&nbsp;&nbsp; - Timeout between avatar Download<br/>
  download_avatars_option<br/>
- &nbsp;&nbsp;&nbsp; - (1) Downloads multiple avatars from the given usernames (0) Downloads one avatar from the given profile url<br/>
+ &nbsp;&nbsp;&nbsp; - (1) Downloads multiple avatars from the given usernames<br/>
+ &nbsp;&nbsp;&nbsp; - (0) Downloads one avatar from the given profile url<br/>
  username_checker_use_proxies<br/>
- &nbsp;&nbsp;&nbsp; - (1) Use random proxy from the proxies.txt on username check (0) No Proxy<br/>
+ &nbsp;&nbsp;&nbsp; - (1) Use random proxy from the proxies.txt on username check<br/>
+ &nbsp;&nbsp;&nbsp; - (0) No Proxy<br/>
  username_checker_timeout<br/>
  &nbsp;&nbsp;&nbsp; - Timeout between username check<br/>
  account_checker_use_proxies<br/>
- &nbsp;&nbsp;&nbsp; - (1) Use random proxy from the proxies.txt on account check (0) No Proxy<br/>
+ &nbsp;&nbsp;&nbsp; - (1) Use random proxy from the proxies.txt on account check<br/>
+ &nbsp;&nbsp;&nbsp; - (0) No Proxy<br/>
  account_checker_timeout<br/>
  &nbsp;&nbsp;&nbsp - Timeout between account check<br/>
  
