@@ -123,3 +123,25 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+InstagramAIO++.zip
+InstagramAIO++/Data/proxies.txt
+InstagramAIO++/Data/[Stories Viewer]/usernames.txt
+InstagramAIO++/Data/[Like Bot]/media_urls.txt
+InstagramAIO++/Data/[Like Bot]/media_urls.txt
+InstagramAIO++/Data/[Just Like]/media_urls.txt
+InstagramAIO++/[InstagramAIO++].exe
+InstagramAIO++/configs.json
+InstagramAIO++/Data/[Account Checker]/combos.txt
+InstagramAIO++/Data/[Comment Bot]/media_urls.txt
+InstagramAIO++/Data/[Downloads]/media_urls.txt
+InstagramAIO++/Data/[Follow Bot]/usernames.txt
+InstagramAIO++/Data/[Grab Avatars]/usernames.txt
+InstagramAIO++/Data/[Just Follow]/usernames.txt
+InstagramAIO++/Data/[Just Like]/media_urls.txt
+InstagramAIO++/Data/[Just Unfollow]/usernames.txt
+InstagramAIO++/Data/[Just Unlike]/media_urls.txt
+InstagramAIO++/[InstagramAIO++].exe
+InstagramAIO++/Data/[Downloads]/media_urls.txt
+InstagramAIO++/Data/[Like Bot]/media_urls.txt
+InstagramAIO++/Data/[Just Unlike]/media_urls.txt
+InstagramAIO++/Data/[Like Bot]/media_urls.txt

@@ -5,7 +5,7 @@
 ![](https://i.ibb.co/hYSfrQZ/tool.png)
 
 # Functions
- If you succesfully logged in then your login session saved to the info.json after that it remembers the account for 90days because instagram stores that data for 90days.<br/><br/>
+ If you succesfully logged in then your login session will be saved to the info.json after that it remembers the account for 90days because instagram stores that data for 90days.<br/><br/>
  Follow Bot<br/>
  &nbsp;&nbsp;&nbsp; - Follow First then Unfollow<br/>
  &nbsp;&nbsp;&nbsp; - Unfollow first then Follow<br/>

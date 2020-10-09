@@ -625,7 +625,7 @@ class Main:
     def UsernameChecker(self,username):
         try:
             response = ''
-            if self.username_checker_use_proxies == True:
+            if self.username_checker_use_proxies == 1:
                 response = requests.get('https://www.instagram.com/{0}/'.format(username),proxies=self.GetRandomProxy())
             else:
                 response = requests.get('https://www.instagram.com/{0}/'.format(username))
@@ -731,7 +731,7 @@ class Main:
 
             login_response = ''
 
-            if self.account_checker_use_proxies == True:
+            if self.account_checker_use_proxies == 1:
                 login_response = requests.post(login_url, data=payload, headers=login_header,proxies=self.GetRandomProxy())
             else:
                 login_response = requests.post(login_url, data=payload, headers=login_header)
