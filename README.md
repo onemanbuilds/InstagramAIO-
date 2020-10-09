@@ -67,7 +67,7 @@
  &nbsp;&nbsp;&nbsp; - Timeout between account check<br/>
  
 # Credits
- ![Ping for the instagram_private_api](https://github.com/ping)
+ ![Thanks for Ping for the instagram_private_api](https://github.com/ping)
   
 # Legal
  This is illegal if you use this without the consent of the owners (in this case, the Instagram team).<br/>
