@@ -1,0 +1,14 @@
+colorama
+threading
+multiprocessing.dummy
+datetime
+bs4
+instagram_private_api
+sys
+os
+json
+codecs
+time
+requests
+string
+random
