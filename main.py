@@ -96,12 +96,8 @@ class Main:
         config = self.ReadConfig()
         self.username = config['username']
         self.password = config['password']
-        self.follow_timeout = config['follow_timeout']
-        self.unfollow_timeout = config['unfollow_timeout']
         self.followbot_option = config['followbot_option']
         self.followbot_timeout = config['followbot_timeout']
-        self.like_timeout = config['like_timeout']
-        self.unlike_timeout = config['unlike_timeout']
         self.likebot_option = config['likebot_option']
         self.likebot_timeout = config['likebot_timeout']
         self.comment_timeout = config['comment_timeout']
@@ -317,9 +313,6 @@ class Main:
                             f.write('ALREADY FOLLOWING {0}\n'.format(username))
             else:
                 self.PrintText('ERROR','SOMETHING WENT WRONG',Fore.RED,Fore.RED)
-
-            if self.follow_timeout > 0:
-                time.sleep(self.follow_timeout)
         except:
             pass
 
@@ -339,9 +332,6 @@ class Main:
                             f.write('YOU ARE ALREADY NOT FOLLOWING {0}\n'.format(username))
             else:
                 self.PrintText('ERROR','SOMETHING WENT WRONG',Fore.RED,Fore.RED)
-
-            if self.unfollow_timeout > 0:
-                time.sleep(self.unfollow_timeout)
         except:
             pass
         
@@ -404,9 +394,6 @@ class Main:
                         f.write('LIKED {0} | URL: {1}'.format(media_id,media_url))
             else:
                 self.PrintText('ERROR','SOMETHING WENT WRONG',Fore.RED,Fore.RED)
-
-            if self.like_timeout > 0:
-                time.sleep(self.like_timeout)
         except:
             pass
 
@@ -421,9 +408,6 @@ class Main:
                         f.write('UNLIKED {0} | URL: {1}'.format(media_id,media_url))
             else:
                 self.PrintText('ERROR','SOMETHING WENT WRONG',Fore.RED,Fore.RED)
-
-            if self.unlike_timeout > 0:
-                time.sleep(self.unlike_timeout)
         except:
             pass
 
