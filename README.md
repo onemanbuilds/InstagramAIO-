@@ -64,7 +64,7 @@
  &nbsp;&nbsp;&nbsp; - (1) Use random proxy from the proxies.txt on account check<br/>
  &nbsp;&nbsp;&nbsp; - (0) No Proxy<br/>
  account_checker_timeout<br/>
- &nbsp;&nbsp;&nbsp - Timeout between account check<br/>
+ &nbsp;&nbsp;&nbsp; - Timeout between account check<br/>
  
 # Credits
  ![Ping for the instagram_private_api](https://github.com/ping)
