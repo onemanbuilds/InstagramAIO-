@@ -37,7 +37,7 @@
  &nbsp;&nbsp;&nbsp; - (1) First Follow then Unfollow<br/>
  &nbsp;&nbsp;&nbsp; - (0) First Unfollow then Follow<br/>
  followbot_timeout<br/>
- &nbsp;&nbsp;&nbsp; - Timeout between Follow and Unfollow<br/>
+ &nbsp;&nbsp;&nbsp; - Timeout between Follow and Unfollow (recommended 3600s)<br/>
  likebot_option<br/>
  &nbsp;&nbsp;&nbsp; - (1) First Like then Unlike<br/>
  &nbsp;&nbsp;&nbsp; - (0) First Unlike then Unfollow<br/>
@@ -66,6 +66,9 @@
  account_checker_timeout<br/>
  &nbsp;&nbsp;&nbsp; - Timeout between account check<br/>
  
+# Example
+ https://www.instagram.com/p/AsdFgHjKC-U/
+
 # Credits
  ![Thanks for Ping for the instagram_private_api](https://github.com/ping)
   
