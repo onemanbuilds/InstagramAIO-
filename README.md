@@ -82,4 +82,4 @@
  
 # Support & Contact
  onemanbuildsofficial@gmail.com<br/>
- ![SUPPORT] (https://ko-fi.com/onemanbuilds)
+ ![SUPPORT](https://ko-fi.com/onemanbuilds)
