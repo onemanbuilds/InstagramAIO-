@@ -302,7 +302,7 @@ class Main:
             result = self.api.friendships_create(userid)
             #timeout = self.PrintInput('TIMEOUT','Enter the timeout after unfollows',Fore.MAGENTA,Fore.WHITE,Fore.MAGENTA)
             if 'friendship_status' in result:
-                if result['friendship_status']['following'] == False:
+                if result['friendship_status']['following'] == True:
                     if result['friendship_status']['outgoing_request'] == True:
                         self.PrintText('FOLLOWED',username,Fore.GREEN,Fore.GREEN)
                         with open('Data/[Just Follow]/results.txt','a') as f:
