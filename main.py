@@ -224,11 +224,11 @@ class Main:
             self.Menu()
         elif int(option) == 10:
             threading = Thread(target=self.FollowByHashtag).start()
-            time.sleep(2)
+            time.sleep(5)
             self.Menu()
         elif int(option) == 11:
             threading = Thread(target=self.UnFollowByHashtag).start()
-            time.sleep(2)
+            time.sleep(5)
             self.Menu()
         elif int(option) == 12:
             if self.download_videos_or_images_option == 1:
@@ -263,7 +263,7 @@ class Main:
             self.Menu()
         elif int(option) == 15:
             threading = Thread(target=self.UsernameScrape).start()
-            time.sleep(2)
+            time.sleep(5)
             self.Menu()
         else:
             threading = Thread(target=self.DownloadVideoOrImage).start()
@@ -303,18 +303,13 @@ class Main:
             #timeout = self.PrintInput('TIMEOUT','Enter the timeout after unfollows',Fore.MAGENTA,Fore.WHITE,Fore.MAGENTA)
             if 'friendship_status' in result:
                 if result['friendship_status']['following'] == True:
-                    if result['friendship_status']['outgoing_request'] == True:
-                        self.PrintText('FOLLOWED',username,Fore.GREEN,Fore.GREEN)
-                        with open('Data/[Just Follow]/results.txt','a') as f:
-                            f.write('FOLLOWED {0}\n'.format(username))
-                    else:
-                        self.PrintText('ALREADY SENT A REQUEST',username,Fore.RED,Fore.RED)
-                        with open('Data/[Just Follow]/results.txt','a') as f:
-                            f.write('ALREADY SENT A REQUEST {0}\n'.format(username))
+                    self.PrintText('FOLLOWED',username,Fore.GREEN,Fore.GREEN)
+                    with open('Data/[Just Follow]/results.txt','a') as f:
+                        f.write('FOLLOWED {0}\n'.format(username))
                 else:
                     self.PrintText('ALREADY FOLLOWING',username,Fore.RED,Fore.RED)
                     with open('Data/[Just Follow]/results.txt','a') as f:
-                            f.write('ALREADY FOLLOWING {0}\n'.format(username))
+                        f.write('ALREADY FOLLOWING {0}\n'.format(username))
             else:
                 self.PrintText('ERROR','SOMETHING WENT WRONG',Fore.RED,Fore.RED)
         except:
@@ -343,47 +338,52 @@ class Main:
         try:
             userid = self.GetUserId(username)
             result = self.api.friendships_create(userid)
+            followed = 0
             #timeout = self.PrintInput('TIMEOUT','Enter the timeout after unfollows',Fore.MAGENTA,Fore.WHITE,Fore.MAGENTA)
             if 'friendship_status' in result:
-                if result['friendship_status']['following'] == False:
-                    if result['friendship_status']['outgoing_request'] == True:
-                        self.PrintText('FOLLOWED',userid,Fore.GREEN,Fore.GREEN)
-                        with open('Data/[Just Follow]/follow_by_id_results.txt','a') as f:
-                            f.write('FOLLOWED {0}\n'.format(userid))
-                    else:
-                        self.PrintText('ALREADY SENT A REQUEST',userid,Fore.RED,Fore.RED)
-                        with open('Data/[Just Follow]/follow_by_id_results.txt','a') as f:
-                            f.write('ALREADY SENT A REQUEST {0}\n'.format(userid))
+                if result['friendship_status']['following'] == True:
+                    self.PrintText('FOLLOWED',userid,Fore.GREEN,Fore.GREEN)
+                    with open('Data/[Just Follow]/follow_by_id_results.txt','a') as f:
+                        f.write('FOLLOWED {0}\n'.format(userid))
+                    followed = 1
                 else:
                     self.PrintText('ALREADY FOLLOWING',userid,Fore.RED,Fore.RED)
                     with open('Data/[Just Follow]/follow_by_id_results.txt','a') as f:
-                            f.write('ALREADY FOLLOWING {0}\n'.format(userid))
+                        f.write('ALREADY FOLLOWING {0}\n'.format(userid))
+                    followed = 2
             else:
                 self.PrintText('ERROR','SOMETHING WENT WRONG',Fore.RED,Fore.RED)
 
             if self.follow_timeout > 0:
                 time.sleep(self.follow_timeout)
+
+            return followed
         except:
             pass
 
     def UnfollowById(self,userid):
         try:
             result = self.api.friendships_destroy(userid)
+            unfollowed = 0
             #timeout = self.PrintInput('TIMEOUT','Enter the timeout after unfollows',Fore.MAGENTA,Fore.WHITE,Fore.MAGENTA)
             if 'friendship_status' in result:
                 if result['friendship_status']['following'] == False:
                     self.PrintText('UNFOLLOWED',userid,Fore.GREEN,Fore.GREEN)
                     with open('Data/[Just Unfollow]/unfollow_by_id_results.txt','a') as f:
-                            f.write('UNFOLLOWED {0}\n'.format(userid))
+                        f.write('UNFOLLOWED {0}\n'.format(userid))
+                    unfollowed = 1
                 else:
                     self.PrintText('YOU ARE ALREADY NOT FOLLOWING',userid,Fore.RED,Fore.RED)
                     with open('Data/[Just Unfollow]/unfollow_by_id_results.txt','a') as f:
-                            f.write('YOU ARE ALREADY NOT FOLLOWING {0}\n'.format(userid))
+                        f.write('YOU ARE ALREADY NOT FOLLOWING {0}\n'.format(userid))
+                    unfollowed = 2
             else:
                 self.PrintText('ERROR','SOMETHING WENT WRONG',Fore.RED,Fore.RED)
 
             if self.unfollow_timeout > 0:
                 time.sleep(self.unfollow_timeout)
+
+            return unfollowed
         except:
             pass
 
@@ -463,7 +463,13 @@ class Main:
             
             for item in items:
                 #userid item['user']['pk']
-                self.FollowById(item['user']['pk'])
+                userid = item['user']['pk']
+                if self.FollowById(userid) == 1:
+                    self.PrintText('FOLLOWED',userid,Fore.GREEN,Fore.GREEN)
+                elif self.FollowById(userid) == 2:
+                    self.PrintText('ALREADY FOLLOWED',userid,Fore.RED,Fore.RED)
+                else:
+                    self.PrintText('ERROR','SOMETHING WENT WRONG',Fore.RED,Fore.RED)
         except:
             pass
         
@@ -502,7 +508,13 @@ class Main:
             
             for item in items:
                 #userid item['user']['pk']
-                self.UnfollowById(item['user']['pk'])
+                userid = item['user']['pk']
+                if self.UnfollowById(userid) == 1:
+                    self.PrintText('UNFOLLOWED',userid,Fore.GREEN,Fore.GREEN)
+                elif self.UnfollowById(userid) == 2:
+                    self.PrintText('ALREADY UNFOLLOWED',userid,Fore.RED,Fore.RED)
+                else:
+                    self.PrintText('ERROR','SOMETHING WENT WRONG',Fore.RED,Fore.RED)
         except:
             pass
 
