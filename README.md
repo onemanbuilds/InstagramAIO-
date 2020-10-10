@@ -66,7 +66,7 @@
  account_checker_timeout<br/>
  &nbsp;&nbsp;&nbsp; - Timeout between account check<br/>
  
-# Example
+# Example Media Url
  https://www.instagram.com/p/AsdFgHjKC-U/
 
 # Credits
