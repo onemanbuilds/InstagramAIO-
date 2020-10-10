@@ -10,8 +10,8 @@
     "download_videos_or_images_option":1,
     "download_avatars_timeout":0,
     "download_avatars_option":1,
-    "username_checker_use_proxies":1,
+    "username_checker_use_proxies":0,
     "username_checker_timeout":0,
-    "account_checker_use_proxies":1,
+    "account_checker_use_proxies":0,
     "account_checker_timeout":0
 }

