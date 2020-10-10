@@ -335,10 +335,11 @@ class Main:
             pass
         
     def FollowById(self,userid):
+        followed = 0
         try:
             userid = self.GetUserId(username)
             result = self.api.friendships_create(userid)
-            followed = 0
+            
             #timeout = self.PrintInput('TIMEOUT','Enter the timeout after unfollows',Fore.MAGENTA,Fore.WHITE,Fore.MAGENTA)
             if 'friendship_status' in result:
                 if result['friendship_status']['following'] == True:
@@ -356,15 +357,16 @@ class Main:
 
             if self.follow_timeout > 0:
                 time.sleep(self.follow_timeout)
-
-            return followed
         except:
             pass
 
+        return followed
+
     def UnfollowById(self,userid):
+        unfollowed = 0
         try:
             result = self.api.friendships_destroy(userid)
-            unfollowed = 0
+            
             #timeout = self.PrintInput('TIMEOUT','Enter the timeout after unfollows',Fore.MAGENTA,Fore.WHITE,Fore.MAGENTA)
             if 'friendship_status' in result:
                 if result['friendship_status']['following'] == False:
@@ -382,10 +384,10 @@ class Main:
 
             if self.unfollow_timeout > 0:
                 time.sleep(self.unfollow_timeout)
-
-            return unfollowed
         except:
             pass
+
+        return unfollowed
 
     def Like(self,media_url): #feed timeline or video_view or photo_view
         try:
