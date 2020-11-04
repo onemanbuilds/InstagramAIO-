@@ -1,6 +1,11 @@
 # InstagramAIO++
  All In One Tool For Instagram.
 
+# Installation
+```
+pip3 install -r requirements.txt
+``` 
+
 # Tool
 ![](https://i.ibb.co/hYSfrQZ/tool.png)
 
