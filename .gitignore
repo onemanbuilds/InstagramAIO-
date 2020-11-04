@@ -150,3 +150,8 @@ InstagramAIO++/Data/[Account Checker]/combos.txt
 InstagramAIO++/Data/[Comment Bot]/media_urls.txt
 info.json
 InstagramAIO++/[InstagramAIO++].exe
+Data/[Just Follow]/follow_by_id_results.txt
+Data/[Username Checker]/usernames.txt
+Data/[Username Scraper]/scraped.txt
+InstagramAIO++/Data/[Username Checker]/usernames.txt
+InstagramAIO++/Data/[Stories Viewer]/usernames.txt
