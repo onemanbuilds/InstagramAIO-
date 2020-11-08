@@ -135,7 +135,7 @@ class Main:
             pass
         
     def ReadFile(self,filename,method):
-        with open(filename,method) as f:
+        with open(filename,method,encoding='utf8') as f:
             content = [line.strip('\n') for line in f]
             return content
 
